@@ -16,7 +16,7 @@ In this lesson we will explore various ways of conditionally rendering elements 
 React's JSX syntax enables several different methods for conditionall rendering content or React components.   One of the simplest approaches is one that we have already seen: the Boolean shortcircuit.  
 
 ```javascript
-export default class BooleanShort extends Component {
+class BooleanShort extends Component {
   constructor(props) {
     super(props);
 
@@ -41,6 +41,8 @@ export default class BooleanShort extends Component {
     )
   }
 }
+
+export default BooleanShort
 ```
 
 Please forgive the stateful component.  It simplified the general idea.  The key piece is the render method where the conditional `&&` prevents the "even" message from rendering unless the `ctr` variable is even.
@@ -66,6 +68,8 @@ class BooleanShort extends Component {
     )
   }
 }
+
+export default BooleanShort
 ```
 
 Methods that return JSX fragments and variables explicitly retrieved from `this.state` can make the render method much easier to parse and overview at a high level.
@@ -75,7 +79,7 @@ Methods that return JSX fragments and variables explicitly retrieved from `this.
 We've also seen the ternary operator approach to conditional rendering.  This particular strategy benefits greatly from factoring out helper methods that return JSX fragments since the ternary syntax is already noisy and anything we do to simplify the lines in which it is used is usually worth it.
 
 ```javascript
-export default class RandomUser extends Component {
+class RandomUser extends Component {
   // ...
   local() {
     const user = this.state.user;
@@ -103,6 +107,8 @@ export default class RandomUser extends Component {
     );
   }
 }
+
+export default RandomUser
 ```
 
 This example is simple and the helper methods are only returning single lines of JSX, but forcing them all in one line or separating into multiple lines using parentheses for the ternary operator would make a mess.  Notice how the user can have different pieces of their bio displayed either conditionally or directly.  JSX enables us to flexibly choose which parts of the information to conditionally render and which is always rendered the same way.
@@ -112,7 +118,7 @@ This example is simple and the helper methods are only returning single lines of
 Extending the idea of using helper methods to conditionally render pieces of markup, we can use normal javascript statements to decide which pieces of information to render.
 
 ```javascript
-export default class Swanson extends Component {
+class Swanson extends Component {
   // . . .
 
   getQuoteDescription() {
@@ -138,6 +144,8 @@ export default class Swanson extends Component {
     );
   }
 }
+
+export default Swanson
 ```
 
 Part of the power of JSX is the ability to seamlessly blend javascript and markup fragments together, thus allowing us to think programmatically about how to render small or large bits of our ui.  These ideas can be applied broadly, such that quite subtle and complex rendering logic can be expressed in a readable form using JSX.
@@ -154,7 +162,7 @@ Consider the following example:
 import React, { Component } from 'react';
 import Contact from './Contact';
 
-export default class SimpleNav extends Component {
+class SimpleNav extends Component {
   // . . .
 
   getView() {
@@ -191,6 +199,8 @@ export default class SimpleNav extends Component {
     );
   }
 }
+
+export default SimpleNav
 ```
 
 Notice how the `<Contact />` component is rendered when the `currentView` is set to `'contact'`.  Not only can we return raw "html" elements from our methods, we can also return components that we have written ourselves.  This flexibility allows developers full control over how their own components will be rendered.
