@@ -188,6 +188,11 @@ import Contact from './Contact';
 
 class SimpleNav extends Component {
   // . . .
+  setView(view) {
+    this.setState({
+       currentView: view
+    })
+  }
 
   getView() {
     const view = this.state.currentView;
