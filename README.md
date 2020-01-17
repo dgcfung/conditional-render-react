@@ -137,6 +137,11 @@ This example is simple and the helper methods are only returning single lines of
 Extending the idea of using helper methods to conditionally render pieces of markup, we can use normal javascript statements to decide which pieces of information to render.
 
 ```javascript
+import React, { Component } from 'react'
+import axios from 'axios'
+
+const URL = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes'
+
 class Swanson extends Component {
   // . . .
 
