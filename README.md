@@ -45,9 +45,8 @@ class BooleanShort extends Component {
 export default BooleanShort
 ```
 
-Please forgive the stateful component.  It simplified the general idea.  The key piece is the render method where the conditional `&&` prevents the "even" message from rendering unless the `ctr` variable is even.
+The key piece to is the render method where the conditional `&&` prevents the "even" message when false and rendering the <p> tag when the `ctr` variable is even.
 
-The method could be refactored to be a bit more readable by extracting variables and methods.
 
 ```javascript
 class BooleanShort extends Component {
