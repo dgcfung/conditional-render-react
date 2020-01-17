@@ -80,6 +80,9 @@ Methods that return JSX fragments and variables explicitly retrieved from `this.
 We've also seen the ternary operator approach to conditional rendering.  This particular strategy benefits greatly from factoring out helper methods that return JSX fragments since the ternary syntax is already noisy and anything we do to simplify the lines in which it is used is usually worth it.
 
 ```javascript
+import React, { Component } from 'react'
+const URL = 'https://api.randomuser.me/';
+
 class RandomUser extends Component {
   // ...
   local() {
