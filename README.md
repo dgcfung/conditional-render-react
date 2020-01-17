@@ -91,31 +91,40 @@ const USER = above USER JSON
 
 class RandomUser extends Component {
   // ...
-  local() {
-    const user = this.state.user;
-    return (
-      <div>{user.name.first} is a local</div>
-    );
-  }
+      local() {
+        const user = this.state.user
+        return(
+           <div>
+             <h3>Local</h3>
+             <p>{user.name.first} is {user.dob.age}.</p>
+             <p>This person is from {user.location.country}.</p>
+           </div>
+        )
+    }
 
-  international() {
-    const user = this.state.user;
-    return (
-      <div>{user.name.first} is a friend from abroad</div>
-    )
-  }
+    international() {
+      const user = this.state.user
+        return(
+          <div>
+            <h3>International</h3>
+              <p>{user.name.first} is {user.dob.age} years old.</p>
+              <p>This person is from {user.location.country}.</p>
+          </div>
+        )
+    }
 
-  render() {
-    const user = this.state.user;
-    return (<div className="item">
-      <h2>Ternary Operator</h2>
-      <div>
-        {user.nat === 'US'? this.local() : this.international() }
-        <img src={user.picture.medium} />
-      </div>
-    </div>
-    );
-  }
+    render() {
+      const user = this.state.user
+      return(
+        <div>
+          <h2>Ternary Operator</h2>
+          <div>
+            {user.nat === 'US' ? this.local() : this.international()}
+            <img src={user.picture.medium} alt={'person'}/>
+          </div>
+        </div>
+      )
+    }
 }
 
 export default RandomUser
